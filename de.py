@@ -1,5 +1,6 @@
-#a simple calculator with GUI
+
 #######################################################
+from decrypt import decryptor
 from tkinter import *
 import os
 from tkinter.filedialog import askopenfilename
@@ -11,28 +12,28 @@ decr.resizable(False,False)
 ##############################################################
 def browsefunc1():
     global filename
-    filename=askopenfilename(filetypes=(("JPEG files", "*.jpg;*.JPG"),("PNG Files", "*.png;*.PNG") ))
+    filename=askopenfilename(filetypes=(("PNG Files", "*.png;*.PNG"),("JPEG files", "*.jpg;*.JPG")))
     e1.config(text=filename)
     e1.delete(0,END)
     e1.insert(0,filename)
 
 def browsefunc2():
     global filename
-    filename=askopenfilename(filetypes=(("Alphaspear file", "*.ALPHASPEAR;*.alphaspear"), ))
+    filename=askopenfilename(filetypes=(("Key file", "*.KEY;*.key"), ))
     e2.config(text=filename)
     e2.delete(0,END)
     e2.insert(0,filename)
 
 def browsefunc3():
     global filename
-    filename=askopenfilename(filetypes=(("Alphaspear file", "*.ALPHASPEAR;*.alphaspear"), ))
+    filename=askopenfilename(filetypes=(("Key file", "*.KEY;*.key"), ))
     e3.config(text=filename)
     e3.delete(0,END)
     e3.insert(0,filename)
 
 def go_home():
 	decr.destroy()
-	import ui
+	import main
 
 def start_decrypting():
     global x
@@ -41,7 +42,7 @@ def start_decrypting():
     x = e1.get()
     y = e2.get()
     z = e3.get()
-    os.system("python decrypt.py "+ x + " " + y + " " + z)
+    decryptor(x,y,z)
 
 #input Box    
 ###############################################################

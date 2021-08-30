@@ -1,5 +1,6 @@
 #a simple calculator with GUI
 #######################################################
+from encrypt import encryptor
 from tkinter import *
 import os
 from tkinter.filedialog import askopenfilename
@@ -11,19 +12,19 @@ encr.resizable(False,False)
 ##############################################################
 def browsefunc():
     global filename
-    filename=askopenfilename(filetypes=(("JPEG files", "*.jpg;*.JPG"),("PNG Files", "*.png;*.PNG") ))
+    filename=askopenfilename(filetypes=(("PNG Files", "*.png;*.PNG"),("JPEG files", "*.jpg;*.JPG") ))
     e.config(text=filename)
     e.delete(0,END)
     e.insert(0,filename)
 
 def go_home():
 	encr.destroy()
-	import ui
+	import main
 
 def start_encrypting():
     global x
     x = e.get()
-    os.system("python encrypt.py "+ x)
+    encryptor(x)
 #input Box    
 ###############################################################
 e=Entry(encr,width=70,borderwidth=1)
