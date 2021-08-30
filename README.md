@@ -1,1 +1,1 @@
-To run this program run ui.py first
+pip install numpy tkinter ttkthemes win10toast Image pillow 
